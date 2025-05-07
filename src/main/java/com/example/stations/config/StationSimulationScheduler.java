@@ -16,7 +16,7 @@ public class StationSimulationScheduler {
     @Qualifier("stationSimulationService")
     private final StationSimulationService simulatorService;
 
-    @Scheduled(fixedRate = 1000)
+    @Scheduled(fixedRate = 10000)
     public void runSimulation() {
         simulatorService.simulateData();
     }
