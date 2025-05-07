@@ -19,7 +19,8 @@ import org.springframework.context.annotation.Configuration;
                 description = "API Documentation"
         ),
         servers = {
-                @Server(url = "http://localhost:8080", description = "Local Server")
+                @Server(url = "http://localhost:8080", description = "Local Server"),
+                @Server(url = "https://station-production-89b0.up.railway.app", description = "Prod Server")
         },
         security = @SecurityRequirement(name = "bearerAuth")
 )
