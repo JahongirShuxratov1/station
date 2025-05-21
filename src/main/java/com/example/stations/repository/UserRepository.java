@@ -25,4 +25,5 @@ public interface UserRepository extends JpaRepository<User,Long> {
     @Query(value = "select * from users as u where u.status='ACTIVE'", nativeQuery = true)
     Page<User> getAllActiveUsers(Pageable pageable);
 
+     Optional<User>findByUsername(String username);
 }

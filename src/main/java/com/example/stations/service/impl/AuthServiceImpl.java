@@ -213,7 +213,7 @@ public class AuthServiceImpl implements AuthService {
         }
 
         try {
-            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(dto.getEmail(), dto.getPassword());
+            UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(user.getUsername(), dto.getPassword());
             authenticationManager.authenticate(authentication);
 
 
