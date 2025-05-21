@@ -1,6 +1,7 @@
 package com.example.stations.service;
 
 import com.example.stations.dto.ApiResponse;
+import com.example.stations.entity.User;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
@@ -17,4 +18,6 @@ public interface UserService {
     ApiResponse getAllActiveUser(Pageable pageable);
 
     ApiResponse getUserByToken(String token);
+
+    ApiResponse getMe(User user);
 }

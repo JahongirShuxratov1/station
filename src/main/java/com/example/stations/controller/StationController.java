@@ -23,9 +23,8 @@ public class StationController {
     }
 
     @GetMapping("/getAllStations")
-    public ApiResponse getStation(@RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
-                                  @RequestParam(value = "size", required = false, defaultValue = "20") Integer size) {
-        return this.stationService.getAll(PageRequest.of(page,size));
+    public ApiResponse getStation() {
+        return this.stationService.getAll();
     }
 
 }

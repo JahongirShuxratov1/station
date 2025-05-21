@@ -38,7 +38,7 @@ public class GlobalException {
     public ApiResponse handleResourceNotFoundException(ResourceNotFoundException e) {
         String message ="Resource not found";
         return ApiResponse.builder()
-                .message(message)
+                .message(e.getMessage())
                 .status(HttpStatus.NOT_FOUND)
                 .build();
     }
@@ -47,7 +47,7 @@ public class GlobalException {
     public ApiResponse handleBadRequestException(BadRequestException e) {
         String message = "Bad request exception";
         return ApiResponse.builder()
-                .message(message)
+                .message(e.getMessage())
                 .status(HttpStatus.BAD_REQUEST)
                 .build();
     }

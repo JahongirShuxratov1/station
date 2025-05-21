@@ -120,4 +120,12 @@ public class UserServiceImpl implements UserService {
                 .data(this.userMapper.toDto(user))
                 .build();
     }
+
+    @Override
+    public ApiResponse getMe(User user) {
+        return ApiResponse.builder()
+                .status(HttpStatus.OK)
+                .data(this.userMapper.toDto(user))
+                .build();
+    }
 }

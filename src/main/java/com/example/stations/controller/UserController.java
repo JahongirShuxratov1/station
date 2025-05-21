@@ -1,9 +1,11 @@
 package com.example.stations.controller;
 
 import com.example.stations.dto.ApiResponse;
+import com.example.stations.entity.User;
 import com.example.stations.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,6 +29,10 @@ public class UserController {
     @GetMapping("/getUserById")
     public ApiResponse getUserById(@RequestParam("id") Long id) {
         return this.userService.getUserById(id);
+    }
+    @GetMapping("/getMe")
+    public ApiResponse getMe(@AuthenticationPrincipal User user) {
+        return this.userService.getMe(user);
     }
 
 

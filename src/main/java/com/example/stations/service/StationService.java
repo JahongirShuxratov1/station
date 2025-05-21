@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public interface StationService {
-    ApiResponse getAll(Pageable pageable);
+    ApiResponse getAll();
 
     ApiResponse createStation(StationDto.StationRequest stationRequest);
 

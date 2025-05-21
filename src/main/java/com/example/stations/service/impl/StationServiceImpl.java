@@ -25,12 +25,12 @@ public class StationServiceImpl implements StationService {
     private final StationMapper stationMapper;
 
     @Override
-    public ApiResponse getAll(Pageable pageable) {
-        Page<Station> stationPage = stationRepository.findAll(pageable);
+    public ApiResponse getAll() {
+        List<Station> stationPage = stationRepository.findAll();
         return ApiResponse.builder().
                 status(HttpStatus.OK)
                 .message("SUCCESS")
-                .data(stationPage)
+                .data(this.stationMapper.dtoList(stationPage))
                 .build();
     }
 
@@ -57,5 +57,6 @@ public class StationServiceImpl implements StationService {
                 status(HttpStatus.OK)
                 .message("SUCCESS")
                 .data(response)
-                .build();    }
+                .build();
+    }
 }

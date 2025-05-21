@@ -2,6 +2,7 @@ package com.example.stations.service;
 
 import com.example.stations.dto.ApiResponse;
 import com.example.stations.dto.FCMDto;
+import com.example.stations.dto.StationAlertRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
@@ -16,4 +17,6 @@ public interface NotificationService {
     CompletableFuture<ApiResponse> createNotificationForAllUsers(String text);
 
     ApiResponse getAllNotificationByUserId(Pageable pageable, Long userId);
+
+    CompletableFuture<ApiResponse> createNotificationForTezkorUser(StationAlertRequest stationAlertRequest);
 }

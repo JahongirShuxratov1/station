@@ -2,6 +2,7 @@ package com.example.stations.controller;
 
 import com.example.stations.dto.ApiResponse;
 import com.example.stations.dto.FCMDto;
+import com.example.stations.dto.StationAlertRequest;
 import com.example.stations.dto.StationDto;
 import com.example.stations.service.NotificationService;
 import lombok.RequiredArgsConstructor;
@@ -20,10 +21,17 @@ public class NotificationController {
         return this.notificationService.createToken(request);
     }
 
+
+
     @PostMapping("/createNotification")
     public ApiResponse createNotification(@RequestParam String text,
                                           @RequestParam Long userId) {
          this.notificationService.createNotification(text,userId);
+         return ApiResponse.builder().status(HttpStatus.OK).message("SUCCESS").build();
+    }
+    @PostMapping("/createNotificationForTezkorUser")
+    public ApiResponse createNotification(@RequestBody StationAlertRequest stationAlertRequest) {
+         this.notificationService.createNotificationForTezkorUser(stationAlertRequest);
          return ApiResponse.builder().status(HttpStatus.OK).message("SUCCESS").build();
     }
 
